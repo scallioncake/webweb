@@ -82,22 +82,22 @@ export const Project = (): JSX.Element => {
   return (
     <div className="min-h-screen relative overflow-hidden flex flex-col" style={{ backgroundColor: '#F5F5F7' }}>
       {/* 导航栏 */}
-      <header className="w-full h-20 px-8 py-4 relative z-10">
+      <header className="w-full h-20 px-4 sm:px-8 py-4 relative z-10">
         <NavigationMenu className="absolute top-0 left-1/2 transform -translate-x-1/2">
-          <NavigationMenuList className="inline-flex items-center justify-center gap-8">
+          <NavigationMenuList className="inline-flex items-center justify-center gap-2 sm:gap-4 md:gap-8">
             {navigationItems.map((item) => (
               <NavigationMenuItem key={item.label} className="flex-col h-20 justify-center relative flex-[0_0_auto] inline-flex items-center">
                 <NavigationMenuLink
                   href={item.href}
-                  className="inline-flex flex-col items-center gap-2 relative flex-[0_0_auto] group"
+                  className="inline-flex flex-col items-center gap-1 sm:gap-2 relative flex-[0_0_auto] group"
                 >
-                  <div className="relative w-fit text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0] text-[#1D1D1F] transition-colors duration-300 group-hover:text-[#1D1D1F]/70">
+                  <div className="relative w-fit text-xs sm:text-sm md:text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0] text-[#1D1D1F] transition-colors duration-300 group-hover:text-[#1D1D1F]/70">
                     {item.label}
                   </div>
                   <div 
                     className={`relative h-1 transition-all duration-300 ${
                       item.active 
-                        ? "w-5 bg-black" 
+                        ? "w-3 sm:w-4 md:w-5 bg-black" 
                         : "w-0 bg-transparent"
                     }`}
                   />
@@ -107,32 +107,32 @@ export const Project = (): JSX.Element => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <Button className="gap-1 px-2.5 py-1.5 absolute top-[18px] right-8 bg-black/10 border border-black/20 rounded-lg inline-flex items-center h-auto hover:bg-black/20 transition-colors">
-          <span className="relative w-fit text-[#1D1D1F] text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
+        <Button className="gap-1 px-2 sm:px-2.5 py-1 sm:py-1.5 absolute top-[18px] right-2 sm:right-4 md:right-8 bg-black/10 border border-black/20 rounded-lg inline-flex items-center h-auto hover:bg-black/20 transition-colors">
+          <span className="relative w-fit text-[#1D1D1F] text-xs sm:text-sm md:text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
             下载简历
           </span>
         </Button>
       </header>
 
       {/* 主要内容区域 */}
-      <main className="flex-1 px-8 py-16">
-        <div className="max-w-7xl mx-auto pt-20">
+      <main className="flex-1 px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-16">
+        <div className="max-w-7xl mx-auto pt-12 sm:pt-16 md:pt-20">
           
           {/* 切换按钮 */}
-          <div className="flex justify-start mb-16">
+          <div className="flex justify-start mb-8 sm:mb-12 md:mb-16">
             <div className="relative">
               {/* 底部横线 */}
               <div className="absolute bottom-0 left-0 w-full h-px bg-[#1D1D1F]/20"></div>
               
-              <div className="flex items-center space-x-8">
+              <div className="flex items-center space-x-4 sm:space-x-6 md:space-x-8">
                 <button
                   onClick={() => setActiveTab('systematic')}
-                  className="group relative flex items-center space-x-3 pb-4 transition-all duration-300"
+                  className="group relative flex items-center space-x-2 sm:space-x-3 pb-3 sm:pb-4 transition-all duration-300"
                 >
                   {/* 图标 */}
-                  <div className="w-6 h-6 flex items-center justify-center">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center">
                     <svg 
-                      className={`w-5 h-5 transition-colors duration-300 ${
+                      className={`w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-300 ${
                         activeTab === 'systematic' 
                           ? 'text-[#1D1D1F]' 
                           : 'text-[#1D1D1F]/60 group-hover:text-[#1D1D1F]'
@@ -146,7 +146,7 @@ export const Project = (): JSX.Element => {
                   </div>
                   
                   {/* 文字 */}
-                  <span className={`text-base [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium transition-colors duration-300 ${
+                  <span className={`text-sm sm:text-base [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium transition-colors duration-300 ${
                     activeTab === 'systematic' 
                       ? 'text-[#1D1D1F]' 
                       : 'text-[#1D1D1F]/60 group-hover:text-[#1D1D1F]'
@@ -162,12 +162,12 @@ export const Project = (): JSX.Element => {
                 
                 <button
                   onClick={() => setActiveTab('daily')}
-                  className="group relative flex items-center space-x-3 pb-4 transition-all duration-300"
+                  className="group relative flex items-center space-x-2 sm:space-x-3 pb-3 sm:pb-4 transition-all duration-300"
                 >
                   {/* 图标 */}
-                  <div className="w-6 h-6 flex items-center justify-center">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center">
                     <svg 
-                      className={`w-5 h-5 transition-colors duration-300 ${
+                      className={`w-4 h-4 sm:w-5 sm:h-5 transition-colors duration-300 ${
                         activeTab === 'daily' 
                           ? 'text-[#1D1D1F]' 
                           : 'text-[#1D1D1F]/60 group-hover:text-[#1D1D1F]'
@@ -181,7 +181,7 @@ export const Project = (): JSX.Element => {
                   </div>
                   
                   {/* 文字 */}
-                  <span className={`text-base [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium transition-colors duration-300 ${
+                  <span className={`text-sm sm:text-base [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium transition-colors duration-300 ${
                     activeTab === 'daily' 
                       ? 'text-[#1D1D1F]' 
                       : 'text-[#1D1D1F]/60 group-hover:text-[#1D1D1F]'
@@ -203,38 +203,38 @@ export const Project = (): JSX.Element => {
             {/* 系统性项目 */}
             {activeTab === 'systematic' && (
               <div className="space-y-6">              
-                <div className="grid grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
                   {systematicProjects.map((project, index) => (
                     <div key={index} className="group relative bg-white backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:scale-105 transition-all duration-500">
                       {/* 项目图片占位 */}
                       <div className="aspect-video bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center relative">
-                        <div className="text-[#1D1D1F]/50 text-sm [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
+                        <div className="text-[#1D1D1F]/50 text-xs sm:text-sm [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica] text-center px-2">
                           {project.title}
                         </div>
                         
                         {/* 悬浮时显示描述 */}
-                        <div className="absolute inset-0 bg-white/90 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <p className="text-[#1D1D1F] text-sm leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica] text-center">
+                        <div className="absolute inset-0 bg-white/90 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <p className="text-[#1D1D1F] text-xs sm:text-sm leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica] text-center">
                             {project.description}
                           </p>
                         </div>
                       </div>
                       
                       {/* 项目信息 */}
-                      <div className="p-4 space-y-3">
+                      <div className="p-3 sm:p-4 space-y-2 sm:space-y-3">
                         <div className="flex items-center justify-between">
                           <span className="px-2 py-1 bg-[#1D1D1F]/20 border border-[#1D1D1F]/20 rounded-full text-[#1D1D1F] text-xs [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                             {project.category}
                           </span>
                         </div>
                         
-                        <h3 className="text-[#1D1D1F] text-lg [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+                        <h3 className="text-[#1D1D1F] text-sm sm:text-base lg:text-lg [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                           {project.title}
                         </h3>
                       </div>
                       
                       {/* 年份显示 - 整个卡片的右下角 */}
-                      <div className="absolute bottom-4 right-4 text-[#1D1D1F]/30 text-2xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+                      <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 text-[#1D1D1F]/30 text-lg sm:text-xl lg:text-2xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                         {project.year}
                       </div>
                     </div>
@@ -246,38 +246,38 @@ export const Project = (): JSX.Element => {
             {/* 日常小练习 */}
             {activeTab === 'daily' && (
               <div className="space-y-6">
-                <div className="grid grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
                   {dailyPractices.map((project, index) => (
                     <div key={index} className="group relative bg-white backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:scale-105 transition-all duration-500">
                       {/* 项目图片占位 */}
                       <div className="aspect-video bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center relative">
-                        <div className="text-[#1D1D1F]/50 text-sm [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
+                        <div className="text-[#1D1D1F]/50 text-xs sm:text-sm [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica] text-center px-2">
                           {project.title}
                         </div>
                         
                         {/* 悬浮时显示描述 */}
-                        <div className="absolute inset-0 bg-white/90 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <p className="text-[#1D1D1F] text-sm leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica] text-center">
+                        <div className="absolute inset-0 bg-white/90 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <p className="text-[#1D1D1F] text-xs sm:text-sm leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica] text-center">
                             {project.description}
                           </p>
                         </div>
                       </div>
                       
                       {/* 项目信息 */}
-                      <div className="p-4 space-y-3">
+                      <div className="p-3 sm:p-4 space-y-2 sm:space-y-3">
                         <div className="flex items-center justify-between">
                           <span className="px-2 py-1 bg-[#1D1D1F]/20 border border-[#1D1D1F]/20 rounded-full text-[#1D1D1F] text-xs [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                             {project.category}
                           </span>
                         </div>
                         
-                        <h3 className="text-[#1D1D1F] text-lg [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+                        <h3 className="text-[#1D1D1F] text-sm sm:text-base lg:text-lg [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                           {project.title}
                         </h3>
                       </div>
                       
                       {/* 年份显示 - 整个卡片的右下角 */}
-                      <div className="absolute bottom-4 right-4 text-[#1D1D1F]/30 text-2xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+                      <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 text-[#1D1D1F]/30 text-lg sm:text-xl lg:text-2xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                         {project.year}
                       </div>
                     </div>
