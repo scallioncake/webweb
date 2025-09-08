@@ -74,8 +74,8 @@ export const Blog = (): JSX.Element => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* 下载简历按钮 - 隐藏手机端，平板和桌面端显示 */}
-        <button className="hidden sm:inline-flex absolute top-[16px] sm:top-[18px] right-4 sm:right-8 items-center h-auto transition-colors duration-300 hover:opacity-70">
+        {/* 下载简历按钮 - 与导航栏文字完美对齐 */}
+        <button className="hidden sm:inline-flex absolute top-[20px] right-4 sm:right-8 items-center h-auto transition-colors duration-300 hover:opacity-70">
           <span className="relative w-fit text-[#1D1D1F] text-sm sm:text-base md:text-sm leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
             下载简历
           </span>
