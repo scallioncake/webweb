@@ -69,22 +69,22 @@ export const Screen = (): JSX.Element => {
       <div className="absolute inset-0 bg-black/30 z-10"></div>
       
       {/* 导航栏 */}
-      <header className="w-full h-20 px-8 py-4 relative z-20">
+      <header className="w-full h-20 px-4 sm:px-8 py-4 relative z-20">
         <NavigationMenu className="absolute top-0 left-1/2 transform -translate-x-1/2">
-          <NavigationMenuList className="inline-flex items-center justify-center gap-8">
+          <NavigationMenuList className="inline-flex items-center justify-center gap-1 sm:gap-2 md:gap-4 lg:gap-8">
             {navigationItems.map((item) => (
               <NavigationMenuItem key={item.label} className="flex-col h-20 justify-center relative flex-[0_0_auto] inline-flex items-center">
                 <NavigationMenuLink
                   href={item.href}
-                  className="inline-flex flex-col items-center gap-2 relative flex-[0_0_auto] group"
+                  className="inline-flex flex-col items-center gap-1 sm:gap-2 relative flex-[0_0_auto] group"
                 >
-                  <div className="relative w-fit text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0] text-white transition-colors duration-300 group-hover:text-white/80">
+                  <div className="relative w-fit text-xs sm:text-sm md:text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0] text-white transition-colors duration-300 group-hover:text-white/80">
                     {item.label}
                   </div>
                   <div 
                     className={`relative h-1 transition-all duration-300 ${
                       item.active 
-                        ? "w-5 bg-white" 
+                        ? "w-3 sm:w-4 md:w-5 bg-white" 
                         : "w-0 bg-transparent"
                     }`}
                   />
@@ -94,11 +94,12 @@ export const Screen = (): JSX.Element => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <Button className="gap-1 px-2.5 py-1.5 absolute top-[18px] right-8 bg-black/50 border border-white/20 rounded-lg inline-flex items-center h-auto hover:bg-black/70 transition-colors">
-          <span className="relative w-fit text-white text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
+        {/* 下载简历按钮 - 简洁文字样式 */}
+        <button className="absolute top-[18px] right-1 sm:right-2 md:right-4 lg:right-8 inline-flex items-center h-auto transition-colors duration-300 hover:opacity-70">
+          <span className="relative w-fit text-white text-xs sm:text-sm md:text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
             下载简历
           </span>
-        </Button>
+        </button>
 
         <Link to="/u39318u39029">
       

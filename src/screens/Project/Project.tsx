@@ -84,7 +84,7 @@ export const Project = (): JSX.Element => {
       {/* 导航栏 */}
       <header className="w-full h-20 px-4 sm:px-8 py-4 relative z-10">
         <NavigationMenu className="absolute top-0 left-1/2 transform -translate-x-1/2">
-          <NavigationMenuList className="inline-flex items-center justify-center gap-2 sm:gap-4 md:gap-8">
+          <NavigationMenuList className="inline-flex items-center justify-center gap-1 sm:gap-2 md:gap-4 lg:gap-8">
             {navigationItems.map((item) => (
               <NavigationMenuItem key={item.label} className="flex-col h-20 justify-center relative flex-[0_0_auto] inline-flex items-center">
                 <NavigationMenuLink
@@ -107,11 +107,12 @@ export const Project = (): JSX.Element => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <Button className="gap-1 px-2 sm:px-2.5 py-1 sm:py-1.5 absolute top-[18px] right-2 sm:right-4 md:right-8 bg-black/10 border border-black/20 rounded-lg inline-flex items-center h-auto hover:bg-black/20 transition-colors">
+        {/* 下载简历按钮 - 简洁文字样式 */}
+        <button className="absolute top-[18px] right-1 sm:right-2 md:right-4 lg:right-8 inline-flex items-center h-auto transition-colors duration-300 hover:opacity-70">
           <span className="relative w-fit text-[#1D1D1F] text-xs sm:text-sm md:text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
             下载简历
           </span>
-        </Button>
+        </button>
       </header>
 
       {/* 主要内容区域 */}
