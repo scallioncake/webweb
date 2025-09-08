@@ -44,9 +44,9 @@ export const About = (): JSX.Element => {
   };
 
   return (
-    <div className="min-h-screen bg-[linear-gradient(180deg,rgba(20,20,20,1)_0%,rgba(10,10,10,1)_100%)] relative">
+    <div className="min-h-screen relative" style={{ backgroundColor: '#F5F5F7' }}>
       {/* 导航栏 */}
-      <header className="w-full h-20 px-8 py-4 relative z-10 sticky top-0 bg-black/20 backdrop-blur-sm">
+      <header className="w-full h-20 px-8 py-4 relative z-10 sticky top-0 backdrop-blur-sm" style={{ backgroundColor: '#F5F5F7' }}>
         <NavigationMenu className="absolute top-0 left-1/2 transform -translate-x-1/2">
           <NavigationMenuList className="inline-flex items-center justify-center gap-8">
             {navigationItems.map((item) => (
@@ -55,13 +55,13 @@ export const About = (): JSX.Element => {
                   href={item.href}
                   className="inline-flex flex-col items-center gap-2 relative flex-[0_0_auto] group"
                 >
-                  <div className="relative w-fit text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0] text-white transition-colors duration-300 group-hover:text-white/80">
+                  <div className="relative w-fit text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0] text-[#1D1D1F] transition-colors duration-300 group-hover:text-[#1D1D1F]/70">
                     {item.label}
                   </div>
                   <div 
                     className={`relative h-1 transition-all duration-300 ${
                       item.active 
-                        ? "w-5 bg-white" 
+                        ? "w-5 bg-black" 
                         : "w-0 bg-transparent"
                     }`}
                   />
@@ -71,8 +71,8 @@ export const About = (): JSX.Element => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <Button className="gap-1 px-2.5 py-1.5 absolute top-[18px] right-8 bg-black/50 border border-white/20 rounded-lg inline-flex items-center h-auto hover:bg-black/70 transition-colors">
-          <span className="relative w-fit text-white text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
+        <Button className="gap-1 px-2.5 py-1.5 absolute top-[18px] right-8 bg-black/10 border border-black/20 rounded-lg inline-flex items-center h-auto hover:bg-black/20 transition-colors">
+          <span className="relative w-fit text-[#1D1D1F] text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
             下载简历
           </span>
         </Button>
@@ -86,18 +86,18 @@ export const About = (): JSX.Element => {
           className="opacity-0 translate-y-8 transition-all duration-1000 ease-out"
         >
           <div className="max-w-4xl mx-auto text-center space-y-12">
-            <div className="bg-white/15 backdrop-blur-sm border border-white/20 rounded-2xl p-12 hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+            <div className="backdrop-blur-sm border border-black/10 rounded-2xl p-12 transition-all duration-500 hover:scale-105 hover:shadow-2xl" style={{ backgroundColor: '#fff' }}>
               <div className="space-y-6">
                 <div className="space-y-2">
-                  <h2 className="text-white text-4xl md:text-5xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+                  <h2 className="text-[#1D1D1F] text-4xl md:text-5xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                     个人简介
                   </h2>
-                  <div className="[font-family:'Bebas-Regular',Helvetica] font-normal text-white/70 text-xl tracking-[3px]">
+                  <div className="[font-family:'Bebas-Regular',Helvetica] font-normal text-[#1D1D1F]/70 text-xl tracking-[3px]">
                     Personal Introduction
                   </div>
                 </div>
                 
-                <p className="text-white/80 text-lg leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica] max-w-2xl mx-auto">
+                <p className="text-[#1D1D1F]/80 text-lg leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica] max-w-2xl mx-auto">
                   你好，我是葱油饼炒面，这里是个人简介。
                 </p>
                 
@@ -105,7 +105,7 @@ export const About = (): JSX.Element => {
                   {["算法/AI工程师","产品设计爱好者", "阅读爱好者","终身学习者"].map((skill, index) => (
                     <span 
                       key={skill} 
-                      className="px-6 py-3 bg-white/10 border border-white/20 rounded-full text-white text-sm [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium hover:bg-white/20 hover:scale-110 transition-all duration-300 cursor-pointer"
+                      className="px-6 py-3 bg-white/10 border border-white/20 rounded-full text-[#1D1D1F] text-sm [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium hover:bg-white/20 hover:scale-110 transition-all duration-300 cursor-pointer"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
                       {skill}
@@ -124,49 +124,49 @@ export const About = (): JSX.Element => {
         >
           <div className="max-w-4xl mx-auto">
             <div className="text-center space-y-4 mb-16">
-              <h2 className="text-white text-4xl md:text-5xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+              <h2 className="text-[#1D1D1F] text-4xl md:text-5xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                 教育背景
               </h2>
-              <div className="[font-family:'Bebas-Regular',Helvetica] font-normal text-white/70 text-xl tracking-[3px]">
+              <div className="[font-family:'Bebas-Regular',Helvetica] font-normal text-[#1D1D1F]/70 text-xl tracking-[3px]">
                 Education
               </div>
             </div>
             
             <div className="space-y-8">
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:scale-105 transition-all duration-500 group">
+              <div className="bg-white backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-gray-50 hover:scale-105 transition-all duration-500 group">
                 <div className="flex items-center gap-6 mb-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-[#ff6161]/20 to-[#ff6161]/10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <span className="text-white text-2xl">🎓</span>
+                    <span className="text-[#1D1D1F] text-2xl">🎓</span>
                   </div>
                   <div>
-                    <h3 className="text-white text-2xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+                    <h3 className="text-[#1D1D1F] text-2xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                       设计学学士
                     </h3>
-                    <p className="text-white/60 text-lg [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
+                    <p className="text-[#1D1D1F]/60 text-lg [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
                       2018 - 2022
                     </p>
                   </div>
                 </div>
-                <p className="text-white/70 text-lg leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
+                <p className="text-[#1D1D1F]/70 text-lg leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
                   专注于视觉传达设计和用户体验设计，培养了扎实的设计基础和创意思维。
                 </p>
               </div>
               
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:scale-105 transition-all duration-500 group">
+              <div className="bg-white backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-gray-50 hover:scale-105 transition-all duration-500 group">
                 <div className="flex items-center gap-6 mb-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-blue-500/10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <span className="text-blue-400 text-2xl">📚</span>
                   </div>
                   <div>
-                    <h3 className="text-white text-2xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+                    <h3 className="text-[#1D1D1F] text-2xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                       产品设计认证
                     </h3>
-                    <p className="text-white/60 text-lg [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
+                    <p className="text-[#1D1D1F]/60 text-lg [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
                       2022 - 2023
                     </p>
                   </div>
                 </div>
-                <p className="text-white/70 text-lg leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
+                <p className="text-[#1D1D1F]/70 text-lg leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
                   深入学习产品设计方法论，掌握用户研究、原型设计和设计系统构建。
                 </p>
               </div>
@@ -181,49 +181,49 @@ export const About = (): JSX.Element => {
         >
           <div className="max-w-4xl mx-auto">
             <div className="text-center space-y-4 mb-16">
-              <h2 className="text-white text-4xl md:text-5xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+              <h2 className="text-[#1D1D1F] text-4xl md:text-5xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                 工作经历
                       </h2>
-              <div className="[font-family:'Bebas-Regular',Helvetica] font-normal text-white/70 text-xl tracking-[3px]">
+              <div className="[font-family:'Bebas-Regular',Helvetica] font-normal text-[#1D1D1F]/70 text-xl tracking-[3px]">
                 Experience
               </div>
             </div>
             
             <div className="space-y-8">
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:scale-105 transition-all duration-500 group">
+              <div className="bg-white backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-gray-50 hover:scale-105 transition-all duration-500 group">
                 <div className="flex items-center gap-6 mb-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-green-500/20 to-green-500/10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <span className="text-green-400 text-2xl">💼</span>
                   </div>
                   <div>
-                    <h3 className="text-white text-2xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+                    <h3 className="text-[#1D1D1F] text-2xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                       高级产品设计师
                     </h3>
-                    <p className="text-white/60 text-lg [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
+                    <p className="text-[#1D1D1F]/60 text-lg [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
                       2023 - 至今
                     </p>
                       </div>
                     </div>
-                <p className="text-white/70 text-lg leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
+                <p className="text-[#1D1D1F]/70 text-lg leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
                   负责核心产品的用户体验设计，参与产品策略制定，带领设计团队完成多个重要项目。
                 </p>
               </div>
               
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:scale-105 transition-all duration-500 group">
+              <div className="bg-white backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-gray-50 hover:scale-105 transition-all duration-500 group">
                 <div className="flex items-center gap-6 mb-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-purple-500/10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <span className="text-purple-400 text-2xl">🎨</span>
                   </div>
                   <div>
-                    <h3 className="text-white text-2xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+                    <h3 className="text-[#1D1D1F] text-2xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                       UI/UX 设计师
                     </h3>
-                    <p className="text-white/60 text-lg [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
+                    <p className="text-[#1D1D1F]/60 text-lg [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
                       2022 - 2023
                     </p>
                   </div>
                 </div>
-                <p className="text-white/70 text-lg leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
+                <p className="text-[#1D1D1F]/70 text-lg leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
                   专注于移动端和Web端界面设计，参与用户研究，优化产品用户体验。
                 </p>
               </div>
@@ -238,10 +238,10 @@ export const About = (): JSX.Element => {
         >
           <div className="max-w-6xl mx-auto">
             <div className="text-center space-y-4 mb-16">
-              <h2 className="text-white text-4xl md:text-5xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+              <h2 className="text-[#1D1D1F] text-4xl md:text-5xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                 技能专长
               </h2>
-              <div className="[font-family:'Bebas-Regular',Helvetica] font-normal text-white/70 text-xl tracking-[3px]">
+              <div className="[font-family:'Bebas-Regular',Helvetica] font-normal text-[#1D1D1F]/70 text-xl tracking-[3px]">
                 Skills
               </div>
             </div>
@@ -257,14 +257,14 @@ export const About = (): JSX.Element => {
               ].map((skill, index) => (
                 <div 
                   key={index} 
-                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/10 hover:scale-105 transition-all duration-500 group"
+                  className="bg-white backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-gray-50 hover:scale-105 transition-all duration-500 group"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="flex justify-between items-center mb-4">
-                    <span className="text-white text-lg [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+                    <span className="text-[#1D1D1F] text-lg [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                       {skill.name}
                     </span>
-                    <span className="text-white/60 text-sm [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
+                    <span className="text-[#1D1D1F]/60 text-sm [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
                       {skill.level}%
                     </span>
                   </div>
@@ -287,10 +287,10 @@ export const About = (): JSX.Element => {
         >
           <div className="max-w-4xl mx-auto">
             <div className="text-center space-y-4 mb-16">
-              <h2 className="text-white text-4xl md:text-5xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+              <h2 className="text-[#1D1D1F] text-4xl md:text-5xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                 兴趣爱好
               </h2>
-              <div className="[font-family:'Bebas-Regular',Helvetica] font-normal text-white/70 text-xl tracking-[3px]">
+              <div className="[font-family:'Bebas-Regular',Helvetica] font-normal text-[#1D1D1F]/70 text-xl tracking-[3px]">
                 Interests
               </div>
         </div>
@@ -304,16 +304,16 @@ export const About = (): JSX.Element => {
               ].map((interest, index) => (
                 <div 
                   key={index} 
-                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:scale-105 transition-all duration-500 group"
+                  className="bg-white backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-gray-50 hover:scale-105 transition-all duration-500 group"
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
                   <div className="text-5xl mb-6 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
                     {interest.icon}
                   </div>
-                  <h3 className="text-white text-xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium mb-3">
+                  <h3 className="text-[#1D1D1F] text-xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium mb-3">
                     {interest.title}
                   </h3>
-                  <p className="text-white/70 text-lg leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
+                  <p className="text-[#1D1D1F]/70 text-lg leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
                     {interest.desc}
                   </p>
                 </div>
