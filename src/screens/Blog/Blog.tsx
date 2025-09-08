@@ -46,7 +46,7 @@ export const Blog = (): JSX.Element => {
   ];
 
   return (
-    <div className="min-h-screen bg-[linear-gradient(180deg,rgba(20,20,20,1)_0%,rgba(10,10,10,1)_100%)] relative overflow-hidden flex flex-col">
+    <div className="min-h-screen relative overflow-hidden flex flex-col" style={{ backgroundColor: '#F5F5F7' }}>
       {/* 导航栏 */}
       <header className="w-full h-20 px-8 py-4 relative z-10">
         <NavigationMenu className="absolute top-0 left-1/2 transform -translate-x-1/2">
@@ -57,13 +57,13 @@ export const Blog = (): JSX.Element => {
                   href={item.href}
                   className="inline-flex flex-col items-center gap-2 relative flex-[0_0_auto] group"
                 >
-                  <div className="relative w-fit text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0] text-white transition-colors duration-300 group-hover:text-white/80">
+                  <div className="relative w-fit text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0] text-[#1D1D1F] transition-colors duration-300 group-hover:text-[#1D1D1F]/70">
                     {item.label}
                   </div>
                   <div 
                     className={`relative h-1 transition-all duration-300 ${
                       item.active 
-                        ? "w-5 bg-white" 
+                        ? "w-5 bg-black" 
                         : "w-0 bg-transparent"
                     }`}
                   />
@@ -73,8 +73,8 @@ export const Blog = (): JSX.Element => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <Button className="gap-1 px-2.5 py-1.5 absolute top-[18px] right-8 bg-black/50 border border-white/20 rounded-lg inline-flex items-center h-auto hover:bg-black/70 transition-colors">
-          <span className="relative w-fit text-white text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
+        <Button className="gap-1 px-2.5 py-1.5 absolute top-[18px] right-8 bg-black/10 border border-black/20 rounded-lg inline-flex items-center h-auto hover:bg-black/20 transition-colors">
+          <span className="relative w-fit text-[#1D1D1F] text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
             下载简历
           </span>
         </Button>
@@ -85,7 +85,7 @@ export const Blog = (): JSX.Element => {
         <div className="max-w-4xl mx-auto">
           {/* 标题 */}
           <div className="text-center space-y-6 mb-16">
-            <h1 className="text-white text-5xl md:text-6xl lg:text-7xl leading-[normal] [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
+            <h1 className="text-[#1D1D1F] text-5xl md:text-6xl lg:text-7xl leading-[normal] [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
               博客
             </h1>
             <div className="[font-family:'Bebas-Regular',Helvetica] font-normal text-[#ffffff75] text-xl md:text-2xl tracking-[2px] leading-[normal]">
@@ -96,28 +96,28 @@ export const Blog = (): JSX.Element => {
           {/* 博客文章列表 */}
           <div className="space-y-8">
             {blogPosts.map((post, index) => (
-              <article key={index} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-500">
+              <article key={index} className="group bg-white backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-gray-50 hover:border-white/20 transition-all duration-500">
                 <div className="flex items-center gap-4 mb-4">
-                  <span className="px-3 py-1 bg-[#ff6161]/20 border border-[#ff6161]/30 rounded-full text-[#ff6161] text-xs [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+                  <span className="px-3 py-1 bg-[#1D1D1F]/10 border border-[#1D1D1F]/20 rounded-full text-[#1D1D1F] text-xs [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                     {post.category}
                   </span>
-                  <span className="text-white/50 text-sm [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
+                  <span className="text-[#1D1D1F]/50 text-sm [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
                     {post.date}
                   </span>
-                  <span className="text-white/50 text-sm [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
+                  <span className="text-[#1D1D1F]/50 text-sm [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
                     {post.readTime}
                   </span>
                 </div>
                 
-                <h2 className="text-white text-2xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium mb-4 group-hover:text-[#ff6161] transition-colors duration-300">
+                <h2 className="text-[#1D1D1F] text-2xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium mb-4 group-hover:text-[#1D1D1F] transition-colors duration-300">
                   {post.title}
                 </h2>
                 
-                <p className="text-white/70 text-base leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica] mb-6">
+                <p className="text-[#1D1D1F]/70 text-base leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica] mb-6">
                   {post.excerpt}
                 </p>
                 
-                <button className="inline-flex items-center text-[#ff6161] text-sm [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium hover:text-white transition-colors duration-300">
+                <button className="inline-flex items-center text-[#1D1D1F] text-sm [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium hover:text-[#1D1D1F] transition-colors duration-300">
                   阅读更多
                   <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -129,7 +129,7 @@ export const Blog = (): JSX.Element => {
 
           {/* 加载更多按钮 */}
           <div className="text-center mt-12">
-            <button className="px-8 py-3 bg-transparent border border-white/20 text-white text-sm [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium rounded-lg hover:bg-white/10 transition-all duration-300">
+            <button className="px-8 py-3 bg-transparent border border-white/20 text-[#1D1D1F] text-sm [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium rounded-lg hover:bg-gray-50 transition-all duration-300">
               加载更多文章
             </button>
           </div>

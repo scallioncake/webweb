@@ -80,7 +80,7 @@ export const Project = (): JSX.Element => {
   ];
 
   return (
-    <div className="min-h-screen bg-[linear-gradient(180deg,rgba(20,20,20,1)_0%,rgba(10,10,10,1)_100%)] relative overflow-hidden flex flex-col">
+    <div className="min-h-screen relative overflow-hidden flex flex-col" style={{ backgroundColor: '#F5F5F7' }}>
       {/* 导航栏 */}
       <header className="w-full h-20 px-8 py-4 relative z-10">
         <NavigationMenu className="absolute top-0 left-1/2 transform -translate-x-1/2">
@@ -91,13 +91,13 @@ export const Project = (): JSX.Element => {
                   href={item.href}
                   className="inline-flex flex-col items-center gap-2 relative flex-[0_0_auto] group"
                 >
-                  <div className="relative w-fit text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0] text-white transition-colors duration-300 group-hover:text-white/80">
+                  <div className="relative w-fit text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0] text-[#1D1D1F] transition-colors duration-300 group-hover:text-[#1D1D1F]/70">
                     {item.label}
                   </div>
                   <div 
                     className={`relative h-1 transition-all duration-300 ${
                       item.active 
-                        ? "w-5 bg-white" 
+                        ? "w-5 bg-black" 
                         : "w-0 bg-transparent"
                     }`}
                   />
@@ -107,8 +107,8 @@ export const Project = (): JSX.Element => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <Button className="gap-1 px-2.5 py-1.5 absolute top-[18px] right-8 bg-black/50 border border-white/20 rounded-lg inline-flex items-center h-auto hover:bg-black/70 transition-colors">
-          <span className="relative w-fit text-white text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
+        <Button className="gap-1 px-2.5 py-1.5 absolute top-[18px] right-8 bg-black/10 border border-black/20 rounded-lg inline-flex items-center h-auto hover:bg-black/20 transition-colors">
+          <span className="relative w-fit text-[#1D1D1F] text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
             下载简历
           </span>
         </Button>
@@ -119,28 +119,80 @@ export const Project = (): JSX.Element => {
         <div className="max-w-7xl mx-auto pt-20">
           
           {/* 切换按钮 */}
-          <div className="flex justify-center mb-12">
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-2">
-              <div className="flex space-x-2">
+          <div className="flex justify-start mb-16">
+            <div className="relative">
+              {/* 底部横线 */}
+              <div className="absolute bottom-0 left-0 w-full h-px bg-[#1D1D1F]/20"></div>
+              
+              <div className="flex items-center space-x-8">
                 <button
                   onClick={() => setActiveTab('systematic')}
-                  className={`px-6 py-3 rounded-xl text-sm [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium transition-all duration-300 ${
-                    activeTab === 'systematic'
-                      ? 'bg-[#ff6161] text-white'
-                      : 'text-white/70 hover:text-white hover:bg-white/10'
-                  }`}
+                  className="group relative flex items-center space-x-3 pb-4 transition-all duration-300"
                 >
-                  系统性项目
+                  {/* 图标 */}
+                  <div className="w-6 h-6 flex items-center justify-center">
+                    <svg 
+                      className={`w-5 h-5 transition-colors duration-300 ${
+                        activeTab === 'systematic' 
+                          ? 'text-[#1D1D1F]' 
+                          : 'text-[#1D1D1F]/60 group-hover:text-[#1D1D1F]'
+                      }`} 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                    </svg>
+                  </div>
+                  
+                  {/* 文字 */}
+                  <span className={`text-base [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium transition-colors duration-300 ${
+                    activeTab === 'systematic' 
+                      ? 'text-[#1D1D1F]' 
+                      : 'text-[#1D1D1F]/60 group-hover:text-[#1D1D1F]'
+                  }`}>
+                    系统性项目
+                  </span>
+                  
+                  {/* 激活状态底部横线 */}
+                  <div className={`absolute bottom-0 left-0 h-0.5 bg-[#1D1D1F] transition-all duration-300 ${
+                    activeTab === 'systematic' ? 'w-full' : 'w-0'
+                  }`}></div>
                 </button>
+                
                 <button
                   onClick={() => setActiveTab('daily')}
-                  className={`px-6 py-3 rounded-xl text-sm [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium transition-all duration-300 ${
-                    activeTab === 'daily'
-                      ? 'bg-[#ff6161] text-white'
-                      : 'text-white/70 hover:text-white hover:bg-white/10'
-                  }`}
+                  className="group relative flex items-center space-x-3 pb-4 transition-all duration-300"
                 >
-                  日常小练习
+                  {/* 图标 */}
+                  <div className="w-6 h-6 flex items-center justify-center">
+                    <svg 
+                      className={`w-5 h-5 transition-colors duration-300 ${
+                        activeTab === 'daily' 
+                          ? 'text-[#1D1D1F]' 
+                          : 'text-[#1D1D1F]/60 group-hover:text-[#1D1D1F]'
+                      }`} 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  
+                  {/* 文字 */}
+                  <span className={`text-base [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium transition-colors duration-300 ${
+                    activeTab === 'daily' 
+                      ? 'text-[#1D1D1F]' 
+                      : 'text-[#1D1D1F]/60 group-hover:text-[#1D1D1F]'
+                  }`}>
+                    日常小练习
+                  </span>
+                  
+                  {/* 激活状态底部横线 */}
+                  <div className={`absolute bottom-0 left-0 h-0.5 bg-[#1D1D1F] transition-all duration-300 ${
+                    activeTab === 'daily' ? 'w-full' : 'w-0'
+                  }`}></div>
                 </button>
               </div>
             </div>
@@ -153,16 +205,16 @@ export const Project = (): JSX.Element => {
               <div className="space-y-6">              
                 <div className="grid grid-cols-4 gap-6">
                   {systematicProjects.map((project, index) => (
-                    <div key={index} className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 hover:border-white/20 transition-all duration-500">
+                    <div key={index} className="group relative bg-white backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:scale-105 transition-all duration-500">
                       {/* 项目图片占位 */}
                       <div className="aspect-video bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center relative">
-                        <div className="text-white/50 text-sm [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
+                        <div className="text-[#1D1D1F]/50 text-sm [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
                           {project.title}
                         </div>
                         
                         {/* 悬浮时显示描述 */}
-                        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <p className="text-white text-sm leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica] text-center">
+                        <div className="absolute inset-0 bg-white/90 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <p className="text-[#1D1D1F] text-sm leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica] text-center">
                             {project.description}
                           </p>
                         </div>
@@ -171,18 +223,18 @@ export const Project = (): JSX.Element => {
                       {/* 项目信息 */}
                       <div className="p-4 space-y-3">
                         <div className="flex items-center justify-between">
-                          <span className="px-2 py-1 bg-[#ff6161]/20 border border-[#ff6161]/30 rounded-full text-[#ff6161] text-xs [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+                          <span className="px-2 py-1 bg-[#1D1D1F]/20 border border-[#1D1D1F]/20 rounded-full text-[#1D1D1F] text-xs [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                             {project.category}
                           </span>
                         </div>
                         
-                        <h3 className="text-white text-lg [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+                        <h3 className="text-[#1D1D1F] text-lg [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                           {project.title}
                         </h3>
                       </div>
                       
                       {/* 年份显示 - 整个卡片的右下角 */}
-                      <div className="absolute bottom-4 right-4 text-white/30 text-2xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+                      <div className="absolute bottom-4 right-4 text-[#1D1D1F]/30 text-2xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                         {project.year}
                       </div>
                     </div>
@@ -196,16 +248,16 @@ export const Project = (): JSX.Element => {
               <div className="space-y-6">
                 <div className="grid grid-cols-4 gap-6">
                   {dailyPractices.map((project, index) => (
-                    <div key={index} className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 hover:border-white/20 transition-all duration-500">
+                    <div key={index} className="group relative bg-white backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:scale-105 transition-all duration-500">
                       {/* 项目图片占位 */}
                       <div className="aspect-video bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center relative">
-                        <div className="text-white/50 text-sm [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
+                        <div className="text-[#1D1D1F]/50 text-sm [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica]">
                           {project.title}
                         </div>
                         
                         {/* 悬浮时显示描述 */}
-                        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <p className="text-white text-sm leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica] text-center">
+                        <div className="absolute inset-0 bg-white/90 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <p className="text-[#1D1D1F] text-sm leading-relaxed [font-family:'HarmonyOS_Sans_SC-Regular',Helvetica] text-center">
                             {project.description}
                           </p>
                         </div>
@@ -214,18 +266,18 @@ export const Project = (): JSX.Element => {
                       {/* 项目信息 */}
                       <div className="p-4 space-y-3">
                         <div className="flex items-center justify-between">
-                          <span className="px-2 py-1 bg-[#ff6161]/20 border border-[#ff6161]/30 rounded-full text-[#ff6161] text-xs [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+                          <span className="px-2 py-1 bg-[#1D1D1F]/20 border border-[#1D1D1F]/20 rounded-full text-[#1D1D1F] text-xs [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                             {project.category}
                           </span>
                         </div>
                         
-                        <h3 className="text-white text-lg [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+                        <h3 className="text-[#1D1D1F] text-lg [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                           {project.title}
                         </h3>
                       </div>
                       
                       {/* 年份显示 - 整个卡片的右下角 */}
-                      <div className="absolute bottom-4 right-4 text-white/30 text-2xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
+                      <div className="absolute bottom-4 right-4 text-[#1D1D1F]/30 text-2xl [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium">
                         {project.year}
                       </div>
                     </div>
