@@ -36,6 +36,20 @@ export const Screen = (): JSX.Element => {
     }
   }, []);
 
+  // 禁用页面滚动
+  useEffect(() => {
+    // 保存原始样式
+    const originalStyle = window.getComputedStyle(document.body).overflow;
+    
+    // 禁用滚动
+    document.body.style.overflow = 'hidden';
+    
+    // 组件卸载时恢复滚动
+    return () => {
+      document.body.style.overflow = originalStyle;
+    };
+  }, []);
+
   // 点击页面时尝试播放视频（用于兼容严格的浏览器自动播放策略）
   const handlePageClick = () => {
     const video = videoRef.current;
@@ -48,8 +62,18 @@ export const Screen = (): JSX.Element => {
 
   return (
     <div 
-      className="min-h-screen relative overflow-hidden flex flex-col bg-[linear-gradient(180deg,rgba(20,20,20,1)_0%,rgba(10,10,10,1)_100%)]"
+      className="min-h-screen h-screen relative overflow-hidden flex flex-col bg-[linear-gradient(180deg,rgba(20,20,20,1)_0%,rgba(10,10,10,1)_100%)]"
       onClick={handlePageClick}
+      style={{ 
+        minHeight: '100vh', 
+        height: '100vh',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        overflow: 'hidden'
+      }}
     >
       {/* 视频背景 */}
       <video
@@ -60,13 +84,17 @@ export const Screen = (): JSX.Element => {
         loop
         playsInline
         preload="auto"
+        style={{ minHeight: '100vh', height: '100vh' }}
       >
         <source src="/videos/background.mp4" type="video/mp4" />
         您的浏览器不支持视频标签。
       </video>
       
       {/* 背景遮罩层，确保文字可读性 */}
-      <div className="absolute inset-0 bg-black/30 z-10"></div>
+      <div className="absolute inset-0 bg-black/30 z-10" style={{ minHeight: '100vh', height: '100vh' }}></div>
+      
+      {/* 备用背景，防止视频加载失败时出现白边 */}
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(20,20,20,1)_0%,rgba(10,10,10,1)_100%)] z-0" style={{ minHeight: '100vh', height: '100vh' }}></div>
       
       {/* 导航栏 */}
       <header className="w-full h-20 px-4 sm:px-8 py-4 relative z-20">
@@ -79,7 +107,7 @@ export const Screen = (): JSX.Element => {
                   href={item.href}
                   className="inline-flex flex-col items-center gap-1 sm:gap-2 relative flex-[0_0_auto] group"
                 >
-                  <div className="relative w-fit text-sm sm:text-base md:text-lg leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0] text-white transition-colors duration-300 group-hover:text-white/80">
+                  <div className="relative w-fit text-sm sm:text-base md:text-sm leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0] text-white transition-colors duration-300 group-hover:text-white/80">
                     {item.label}
                   </div>
                   <div 
@@ -97,7 +125,7 @@ export const Screen = (): JSX.Element => {
 
         {/* 下载简历按钮 - 隐藏手机端，平板和桌面端显示 */}
         <button className="hidden sm:inline-flex absolute top-[16px] sm:top-[18px] right-4 sm:right-8 items-center h-auto transition-colors duration-300 hover:opacity-70">
-          <span className="relative w-fit text-white text-sm sm:text-base md:text-lg leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
+          <span className="relative w-fit text-white text-sm sm:text-base md:text-sm leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
             下载简历
           </span>
         </button>

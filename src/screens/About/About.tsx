@@ -56,7 +56,7 @@ export const About = (): JSX.Element => {
                   href={item.href}
                   className="inline-flex flex-col items-center gap-1 sm:gap-2 relative flex-[0_0_auto] group"
                 >
-                  <div className="relative w-fit text-sm sm:text-base md:text-lg leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0] text-[#1D1D1F] transition-colors duration-300 group-hover:text-[#1D1D1F]/70">
+                  <div className="relative w-fit text-sm sm:text-base md:text-sm leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0] text-[#1D1D1F] transition-colors duration-300 group-hover:text-[#1D1D1F]/70">
                     {item.label}
                   </div>
                   <div 
@@ -74,7 +74,7 @@ export const About = (): JSX.Element => {
 
         {/* 下载简历按钮 - 隐藏手机端，平板和桌面端显示 */}
         <button className="hidden sm:inline-flex absolute top-[16px] sm:top-[18px] right-4 sm:right-8 items-center h-auto transition-colors duration-300 hover:opacity-70">
-          <span className="relative w-fit text-[#1D1D1F] text-sm sm:text-base md:text-lg leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
+          <span className="relative w-fit text-[#1D1D1F] text-sm sm:text-base md:text-sm leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
             下载简历
           </span>
         </button>
