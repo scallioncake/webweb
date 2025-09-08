@@ -12,7 +12,7 @@ export const Screen = (): JSX.Element => {
   const navigationItems = [
     { label: "首页", href: "/", active: true },
     { label: "关于我", href: "/about", active: false },
-    { label: "作品", href: "/portfolio", active: false },
+    { label: "项目", href: "/project", active: false },
     { label: "博客", href: "/blog", active: false },
   ];
 

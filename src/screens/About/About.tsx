@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Button } from "../../components/ui/button";
 import {
   NavigationMenu,
@@ -12,7 +11,7 @@ export const About = (): JSX.Element => {
   const navigationItems = [
     { label: "首页", href: "/", active: false },
     { label: "关于我", href: "/about", active: true },
-    { label: "作品", href: "/portfolio", active: false },
+    { label: "项目", href: "/project", active: false },
     { label: "博客", href: "/blog", active: false },
   ];
 

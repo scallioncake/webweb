@@ -7,11 +7,11 @@ import {
   NavigationMenuList,
 } from "../../components/ui/navigation-menu";
 
-export const Portfolio = (): JSX.Element => {
+export const Project = (): JSX.Element => {
   const navigationItems = [
     { label: "首页", href: "/", active: false },
     { label: "关于我", href: "/about", active: false },
-    { label: "作品", href: "/portfolio", active: true },
+    { label: "项目", href: "/project", active: true },
     { label: "博客", href: "/blog", active: false },
   ];
 
@@ -88,10 +88,10 @@ export const Portfolio = (): JSX.Element => {
           {/* 标题 */}
           <div className="text-center space-y-6 mb-16">
             <h1 className="text-white text-5xl md:text-6xl lg:text-7xl leading-[normal] [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
-              作品集
+              项目
             </h1>
             <div className="[font-family:'Bebas-Regular',Helvetica] font-normal text-[#ffffff75] text-xl md:text-2xl tracking-[2px] leading-[normal]">
-              Portfolio
+              Projects
             </div>
           </div>
 

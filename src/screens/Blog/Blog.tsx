@@ -12,7 +12,7 @@ export const Blog = (): JSX.Element => {
   const navigationItems = [
     { label: "首页", href: "/", active: false },
     { label: "关于我", href: "/about", active: false },
-    { label: "作品", href: "/portfolio", active: false },
+    { label: "项目", href: "/project", active: false },
     { label: "博客", href: "/blog", active: true },
   ];
 
