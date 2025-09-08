@@ -59,10 +59,10 @@ export const About = (): JSX.Element => {
                     {item.label}
                   </div>
                   <div 
-                    className={`relative w-full h-0.5 transition-all duration-300 ${
+                    className={`relative h-1 transition-all duration-300 ${
                       item.active 
-                        ? "bg-white" 
-                        : "bg-transparent group-hover:bg-white/30"
+                        ? "w-5 bg-white" 
+                        : "w-0 bg-transparent"
                     }`}
                   />
                 </NavigationMenuLink>

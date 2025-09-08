@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button } from "../../components/ui/button";
 import {
   NavigationMenu,
@@ -84,30 +84,25 @@ export const Project = (): JSX.Element => {
       {/* 导航栏 */}
       <header className="w-full h-20 px-8 py-4 relative z-10">
         <NavigationMenu className="absolute top-0 left-1/2 transform -translate-x-1/2">
-          <NavigationMenuList className="inline-flex items-center justify-center gap-[19px]">
-            {navigationItems.map((item, index) => (
-              <React.Fragment key={item.label}>
-                <NavigationMenuItem className="flex-col h-20 justify-center gap-2.5 relative flex-[0_0_auto] inline-flex items-center">
-                  <NavigationMenuLink
-                    href={item.href}
-                    className="inline-flex flex-col items-start gap-0.5 relative flex-[0_0_auto]"
-                  >
-                    <div
-                      className={`relative w-fit mt-[-1.00px] text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0] ${
-                        item.active ? "text-[#ff6161]" : "text-white"
-                      }`}
-                    >
-                      {item.label}
-                    </div>
-                    <div className="relative self-stretch w-full h-0.5" />
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                {index < navigationItems.length - 1 && (
-                  <div className="relative w-fit text-white text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
-                    /
+          <NavigationMenuList className="inline-flex items-center justify-center gap-8">
+            {navigationItems.map((item) => (
+              <NavigationMenuItem key={item.label} className="flex-col h-20 justify-center relative flex-[0_0_auto] inline-flex items-center">
+                <NavigationMenuLink
+                  href={item.href}
+                  className="inline-flex flex-col items-center gap-2 relative flex-[0_0_auto] group"
+                >
+                  <div className="relative w-fit text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0] text-white transition-colors duration-300 group-hover:text-white/80">
+                    {item.label}
                   </div>
-                )}
-              </React.Fragment>
+                  <div 
+                    className={`relative h-1 transition-all duration-300 ${
+                      item.active 
+                        ? "w-5 bg-white" 
+                        : "w-0 bg-transparent"
+                    }`}
+                  />
+                </NavigationMenuLink>
+              </NavigationMenuItem>
             ))}
           </NavigationMenuList>
         </NavigationMenu>
