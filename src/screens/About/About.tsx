@@ -47,21 +47,22 @@ export const About = (): JSX.Element => {
     <div className="min-h-screen relative" style={{ backgroundColor: '#F5F5F7' }}>
       {/* 导航栏 */}
       <header className="w-full h-20 px-4 sm:px-8 py-4 relative z-10 sticky top-0 backdrop-blur-sm" style={{ backgroundColor: '#F5F5F7' }}>
-        <NavigationMenu className="absolute top-0 left-1/2 transform -translate-x-1/2">
-          <NavigationMenuList className="inline-flex items-center justify-center gap-1 sm:gap-2 md:gap-4 lg:gap-8">
+        {/* 手机端：左对齐导航栏 */}
+        <NavigationMenu className="absolute top-0 left-4 sm:left-1/2 sm:transform sm:-translate-x-1/2">
+          <NavigationMenuList className="inline-flex items-center justify-start sm:justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8">
             {navigationItems.map((item) => (
               <NavigationMenuItem key={item.label} className="flex-col h-20 justify-center relative flex-[0_0_auto] inline-flex items-center">
                 <NavigationMenuLink
                   href={item.href}
                   className="inline-flex flex-col items-center gap-1 sm:gap-2 relative flex-[0_0_auto] group"
                 >
-                  <div className="relative w-fit text-xs sm:text-sm md:text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0] text-[#1D1D1F] transition-colors duration-300 group-hover:text-[#1D1D1F]/70">
+                  <div className="relative w-fit text-sm sm:text-base md:text-lg leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0] text-[#1D1D1F] transition-colors duration-300 group-hover:text-[#1D1D1F]/70">
                     {item.label}
                   </div>
                   <div 
                     className={`relative h-1 transition-all duration-300 ${
                       item.active 
-                        ? "w-3 sm:w-4 md:w-5 bg-black" 
+                        ? "w-4 sm:w-5 md:w-6 bg-black" 
                         : "w-0 bg-transparent"
                     }`}
                   />
@@ -71,9 +72,9 @@ export const About = (): JSX.Element => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* 下载简历按钮 - 简洁文字样式 */}
-        <button className="absolute top-[18px] right-1 sm:right-2 md:right-4 lg:right-8 inline-flex items-center h-auto transition-colors duration-300 hover:opacity-70">
-          <span className="relative w-fit text-[#1D1D1F] text-xs sm:text-sm md:text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
+        {/* 下载简历按钮 - 隐藏手机端，平板和桌面端显示 */}
+        <button className="hidden sm:inline-flex absolute top-[16px] sm:top-[18px] right-4 sm:right-8 items-center h-auto transition-colors duration-300 hover:opacity-70">
+          <span className="relative w-fit text-[#1D1D1F] text-sm sm:text-base md:text-lg leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
             下载简历
           </span>
         </button>

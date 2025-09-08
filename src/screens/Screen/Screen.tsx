@@ -70,21 +70,22 @@ export const Screen = (): JSX.Element => {
       
       {/* 导航栏 */}
       <header className="w-full h-20 px-4 sm:px-8 py-4 relative z-20">
-        <NavigationMenu className="absolute top-0 left-1/2 transform -translate-x-1/2">
-          <NavigationMenuList className="inline-flex items-center justify-center gap-1 sm:gap-2 md:gap-4 lg:gap-8">
+        {/* 手机端：左对齐导航栏 */}
+        <NavigationMenu className="absolute top-0 left-4 sm:left-1/2 sm:transform sm:-translate-x-1/2">
+          <NavigationMenuList className="inline-flex items-center justify-start sm:justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8">
             {navigationItems.map((item) => (
               <NavigationMenuItem key={item.label} className="flex-col h-20 justify-center relative flex-[0_0_auto] inline-flex items-center">
                 <NavigationMenuLink
                   href={item.href}
                   className="inline-flex flex-col items-center gap-1 sm:gap-2 relative flex-[0_0_auto] group"
                 >
-                  <div className="relative w-fit text-xs sm:text-sm md:text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0] text-white transition-colors duration-300 group-hover:text-white/80">
+                  <div className="relative w-fit text-sm sm:text-base md:text-lg leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0] text-white transition-colors duration-300 group-hover:text-white/80">
                     {item.label}
                   </div>
                   <div 
                     className={`relative h-1 transition-all duration-300 ${
                       item.active 
-                        ? "w-3 sm:w-4 md:w-5 bg-white" 
+                        ? "w-4 sm:w-5 md:w-6 bg-white" 
                         : "w-0 bg-transparent"
                     }`}
                   />
@@ -94,9 +95,9 @@ export const Screen = (): JSX.Element => {
           </NavigationMenuList>
         </NavigationMenu>
 
-        {/* 下载简历按钮 - 简洁文字样式 */}
-        <button className="absolute top-[18px] right-1 sm:right-2 md:right-4 lg:right-8 inline-flex items-center h-auto transition-colors duration-300 hover:opacity-70">
-          <span className="relative w-fit text-white text-xs sm:text-sm md:text-base leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
+        {/* 下载简历按钮 - 隐藏手机端，平板和桌面端显示 */}
+        <button className="hidden sm:inline-flex absolute top-[16px] sm:top-[18px] right-4 sm:right-8 items-center h-auto transition-colors duration-300 hover:opacity-70">
+          <span className="relative w-fit text-white text-sm sm:text-base md:text-lg leading-[normal] whitespace-nowrap [font-family:'HarmonyOS_Sans_SC-Medium',Helvetica] font-medium tracking-[0]">
             下载简历
           </span>
         </button>
